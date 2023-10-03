@@ -1,4 +1,4 @@
-python
+```python
 import pandas as pd
 
 def load_weather_data():
@@ -14,3 +14,4 @@ dfs = {}
 for customer in CUSTOMERS:
 dfs[customer] = pd.read_csv(f'customer_{customer}_load.csv')
 return dfs
+```
