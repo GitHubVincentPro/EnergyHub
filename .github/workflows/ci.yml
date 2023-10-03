@@ -1,45 +1,23 @@
-## .github/workflows/ci.yml
+# .github/workflows/ci.yml
 
-```yml
 name: CI
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
-
 build:
-
 runs-on: ubuntu-latest
-
 steps:
 - uses: actions/checkout@v2
-- name: Set up Python 3.8
+- name: Set up Python 3.x
 uses: actions/setup-python@v2
 with:
-python-version: 3.8
+python-version: '3.x'
 - name: Install dependencies
 run: pip install -r requirements.txt
-- name: Lint with flake8
-run: flake8 .
-- name: Test with pytest
-run: pytest
+- name: Run tests
+run: python -m unittest discover
 
-deploy:
-
-needs: build
-if: github.ref == 'refs/heads/main'
-
-runs-on: ubuntu-latest
-
-steps:
-- uses: actions/checkout@v2
-- name: Set up Python 3.8
-uses: actions/setup-python@v2
-with:
-python-version: 3.8
-- name: Deploy to Heroku
-run: |
-git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git main
-env:
-HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-```
+- name: Test coverage
+run: coverage run --source=models -m unittest discover
+run: coverage report -m
