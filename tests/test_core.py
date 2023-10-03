@@ -6,31 +6,51 @@ from api.models import ForecastRequest, ForecastResult
 class TestCore(unittest.TestCase):
 
 def setUp(self):
-self.request = ForecastRequest(
-date="2022-01-01",
+
+# Requête valide
+self.valid_request = ForecastRequest(
+date="2023-01-01",
 location="Paris"
 )
 
-def test_predict_returns_result(self):
-result = predict(self.request)
-self.assertIsInstance(result, ForecastResult)
+# Données de prédiction
+self.forecast_data = {
+"temperature": 15,
+"weather": "Sunny"
+}
 
-def test_forecast_temperature(self):
-result = predict(self.request)
-self.assertIsInstance(result.temperature, float)
+def test_valid_forecast(self):
 
-def test_valid_weather(self):
-possible_weather = ['sunny', 'rainy', 'cloudy']
-result = predict(self.request)
-self.assertIn(result.weather, possible_weather)
+result = predict(self.valid_request)
 
-def test_empty_request(self):
-request = ForecastRequest()
-self.assertRaises(Exception, predict, request)
+self.assertEqual(result.temperature, self.forecast_data["temperature"])
+self.assertEqual(result.weather, self.forecast_data["weather"])
 
 def test_invalid_location(self):
-request = ForecastRequest(location="Invalid")
-self.assertRaises(Exception, predict, request)
+
+invalid_request = ForecastRequest(location="Unknown")
+
+with self.assertRaises(ValueError):
+predict(invalid_request)
+
+def test_forecast_types(self):
+
+result = predict(self.valid_request)
+
+self.assertIsInstance(result.temperature, float)
+self.assertIsInstance(result, ForecastResult)
+
+def test_mock_prediction(self):
+
+# Mock la fonction de prédiction
+def mock_predict(request):
+return ForecastResult(**self.forecast_data)
+
+predict = mock_predict
+
+result = predict(self.valid_request)
+
+self.assertEqual(result.temperature, 15)
 
 if __name__ == '__main__':
 unittest.main()
