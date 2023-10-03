@@ -1,0 +1,38 @@
+# docs/api_specs.yml
+
+openapi: 3.0.0
+info:
+title: EnergyHub API
+version: 1.0.0
+servers:
+- url: /api/v1
+paths:
+/forecasts:
+get:
+summary: Get forecasts for the next 24 hours
+responses:
+200:
+description: Forecasts returned
+content:
+application/json:
+schema:
+type: array
+items:
+$ref: '#/components/schemas/ForecastPoint'
+/battery:
+post:
+summary: Charge or discharge the battery
+requestBody:
+content:
+application/json:
+schema:
+type: object
+properties:
+action:
+type: string
+enum: [charge, discharge]
+amount:
+type: number
+responses:
+200:
+description: Battery status updated
