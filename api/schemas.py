@@ -2,9 +2,9 @@ python
 from pydantic import BaseModel
 
 class ForecastRequestSchema(BaseModel):
-date: datetime
 location: str
+date: datetime
 
 class ForecastResultSchema(BaseModel):
-temp: float
+temperature: float
 weather: str

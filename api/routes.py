@@ -1,10 +1,11 @@
 python
 from fastapi import APIRouter
-from .schemas import *
+
 from .core import predict
+from .schemas import ForecastRequestSchema
 
 router = APIRouter()
 
 @router.post('/forecast')
-async def forecast():
-# gestion de la route
+async def forecast(request: ForecastRequestSchema):
+return predict(request)

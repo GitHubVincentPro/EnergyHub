@@ -1,10 +1,10 @@
 python
-from typing import Optional
+from pydantic import BaseModel
 
-class forecastRequest:
-date: datetime
+class ForecastRequest(BaseModel):
 location: str
+date: datetime
 
-class ForecastResult:
-temp: float
+class ForecastResult(BaseModel):
+temperature: float
 weather: str
