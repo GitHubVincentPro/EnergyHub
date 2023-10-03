@@ -203,7 +203,7 @@ On pourrait aussi:
 
 - Ajouter de nouvelles sources de données réelles plus complètes et à jour, notamment des données météorologiques précises et des courbes de charges de consommateurs/producteurs.
 
-- Implémenter de nouveaux algorithmes d'apprentissage automatique comme des RNN ou CNN dans le dossier "models" pour affiner les prévisions court-terme.
+* Implémenter de nouveaux algorithmes d'apprentissage automatique comme des RNN ou CNN dans le dossier "models" pour affiner les prévisions court-terme.
 
 - Développer dans le dossier "app" de nouvelles routes API et fonctionnalités comme la gestion automatisée du stockage grâce à des algorithmes de reinforcement learning.
 
