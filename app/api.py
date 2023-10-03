@@ -1,44 +1,17 @@
-Voici un exemple de code pour api.py qui ajouterait de nouvelles routes à l'API existante:
+# app/api.py
 
-```python
-# api.py
+from flask import Blueprint, request, jsonify
+from models import forecast_model, battery_manager
 
-from flask import Flask, request, jsonify
-from models import predict, predict_storage, run_simulation
+api = Blueprint('api', __name__)
 
-app = Flask(__name__)
+@api.route('/forecasts')
+def get_forecasts():
+forecasts = forecast_model.predict(24)
+return jsonify(forecasts)
 
-@app.route('/forecast')
-def forecast():
-# Route existante
-pass
-
-@app.route('/storage')
-def predict_storage():
-
-data = request.json
-storage = predict_storage(data)
-return jsonify(storage)
-
-@app.route('/simulate', methods=['POST'])
-def simulate():
-
-scenario = request.json
-result = run_simulation(scenario)
-return jsonify(result)
-
-@app.route('/status')
-def status():
-
-systems_status = get_system_status()
-return jsonify(systems_status)
-
-@app.route('/config')
-def get_config():
-
-config = load_config()
-return jsonify(config)
-
-if __name__ == '__main__':
-app.run(debug=True)
-```
+@api.route('/battery', methods=['POST'])
+def control_battery():
+data = request.get_json()
+battery_manager.run_action(data['action'], data['amount'])
+return jsonify(battery_manager.status())
