@@ -1,0 +1,9 @@
+```json
+{
+"solar_irradiance": {
+"source": "Météo France",
+"interval": "15min",
+"location": "Paris"
+}
+}
+```
