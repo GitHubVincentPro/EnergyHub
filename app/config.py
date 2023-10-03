@@ -1,30 +1,17 @@
-import os
-
 class Config:
-
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
-# Database
-DB_URI = os.environ.get('DATABASE_URL')
-
-# API
-DEBUG = False
-TESTING = False
-
-class DevConfig(Config):
 DEBUG = True
-TESTING = True
 
-class TestConfig(Config):
-DEBUG = True
-TESTING = True
-DB_URI = 'sqlite:///'
+# Dans app/__init__.py
 
-config = {
-'development': DevConfig,
-'testing': TestConfig,
-'production': Config
-}
+from flask import Flask
 
-def get_config(app_env):
-return config[app_env]
+def create_app():
+app = Flask(__name__)
+app.config.from_object('app.config.Config')
+
+from app.api import api as api_blueprint
+app.register_blueprint(api_blueprint)
+
+from app.models import prediction, storage
+return app
