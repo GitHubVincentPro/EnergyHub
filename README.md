@@ -168,6 +168,23 @@ Le but est de disposer rapidement de jeux de données réelles ou simulées pour
 
 Ensuite il faudra penser à organiser ce dossier data, par exemple avec des sous-dossiers par type/source de données ou par zone géographique.
 
+
+### DEV
+
+# CONFIG
+
+On pourrait aussi:
+
+- Ajouter un fichier de variables d'environnement .env
+- Créer une classe de configuration Config
+- Charger lesconfigs à partir d'un fichier YAML
+- Créer des profiles de config (dev, test, prod)
+
+
+
+
+
+
 ### Copyright (c) 2023 VincentPro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
