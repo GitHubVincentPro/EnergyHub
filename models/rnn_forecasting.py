@@ -2,13 +2,13 @@
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 
-def build_rnn_model():
+def build_rnn():
 model = Sequential()
-model.add(LSTM(100, input_shape=(lookback,1)))
+model.add(LSTM(100, input_shape=(X.shape[1], X.shape[2])))
 model.add(Dense(1))
-model.compile(loss='mse')
 return model
 
-def train_rnn(X, y):
-model.fit(X, y, epochs=100)
+def train(model, X, y):
+model.compile(optimizer='rmsprop', loss='mae')
+model.fit(X, y, epochs=10)
 ```
