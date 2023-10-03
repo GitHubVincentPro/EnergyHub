@@ -49,3 +49,41 @@ GitHub EnergyHub:
 - `.github/workflows/ci.yml`: Définit le build continu
 - `.github/linters`: Règles de qualité du code (format, pep8, mypy...)
 - `.github/issue_templates`: Modèles standard pour issues/bugs
+
+### Intégration continue
+
+- Mettre en place des tests automatisés GitHub Actions ou Travis pour vérifier le code à chaque push
+
+- Evaluer la qualité du code, la documentation et respect des bonnes pratiques
+
+- Déployer automatiquement de nouvelles versions si les tests passent
+
+### Documentation
+
+- Compléter la doc d'installation (pré-requis, install du projet...)
+
+- Expliquer en détail chaque composant du système (data, modèles, API...)
+
+- Fournir des tutoriels d'utilisation (prévisions, gestion du stockage...)
+
+- Générer le site de doc à partir du code avec Sphinx
+
+### Ergonomie
+
+- Développer une interface web intuitive avec Dash/Flask
+
+- Permettre la configuration simplifiée via fichier YAML
+
+- Intégrer une authentification/autorisation des utilisateurs
+
+- Internationaliser l'interface (traductions multiples)
+
+### Modèles avancés
+
+- Expérimenter des RNN/CNN pour la prédiction court-terme
+
+- Entrainer un Q-learning pour l'optimisation du stockage
+
+- Utiliser l'apprentissage par renforcement pour l'équilibrage offre/demande
+
+- Publier les résultats dans des conférences/journaux
