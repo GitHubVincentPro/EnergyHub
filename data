@@ -1,0 +1,34 @@
+# EnergyHub
+
+Gestion intelligente et prédictive du stockage d'énergie renouvelable à l'aide de l'intelligence artificielle.
+
+## Objectif du projet
+
+Fournir une brève explication de la mission et des enjeux d'EnergyHub.
+
+## Fonctionnalités
+
+- Prévision de la production et de la demande
+- Optimisation du stockage
+- Interface de visualisation
+- APIs documentées
+
+## Structure du dépôt
+
+- dossiers data, models, interfaces
+- notebooks, tests, docs
+- exemples de configuration
+
+## Démarrage rapide
+
+Expliquer comment répliquer localement le projet en quelques lignes
+
+## Contribuer
+
+Guide des contributors, roadmap, processus de contrib
+
+## Licence
+
+Préciser la licence ouverte choisie
+
+## Contact
