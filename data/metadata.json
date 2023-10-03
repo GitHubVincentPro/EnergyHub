@@ -1,4 +1,4 @@
-```json
+json
 {
 "description": "Métadonnées des jeux de données utilisés dans le projet EnergyHub",
 
@@ -50,4 +50,3 @@
 }
 ]
 }
-```
