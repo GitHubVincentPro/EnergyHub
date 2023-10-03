@@ -181,6 +181,24 @@ On pourrait aussi:
 - Créer des profiles de config (dev, test, prod)
 
 
+### DEV 1.1
+
+- Compléter les jeux de données météorologiques, de charges et de production d'énergie renouvelable. C'est important pour bien entraîner les algorithmes de prédiction.
+
+- Développer davantage de modèles prédictifs en testant de nouveaux algorithmes d'apprentissage comme les RNN ou CNN. Cela permettra d'affiner les prévisions.
+
+- Modéliser plus en détails les flexibilités énergétiques à pilotter comme le stockage ou le load shifting.
+
+- Concevoir une API RESTful complète avec Flask pour interconnecter facilement le système aux autres applications.
+
+- Automatiser les tests unitaires et d'intégration continue, par exemple avec GitHub Actions, pour s'assurer de la qualité à chaque mise à jour.
+
+- Finaliser le développement du dashboard web intuitif pour visualiser et simuler les scénarios de gestion de l'énergie.
+
+- Publier des articles scientifiques pour faire connaître le projet et recueillir les retours de la communauté de recherche.
+
+- Appliquer des techniques d'intelligence artificielle plus avancées comme le deep learning ou le reinforcement learning.
+
 
 
 
