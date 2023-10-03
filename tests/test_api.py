@@ -1,10 +1,12 @@
-# test_api.py
+import pytest
+from app import create_app
 
-import api
-import json
+@pytest.fixture
+def client():
+app = create_app()
+app.config['TESTING'] = True
+return app.test_client()
 
-class TestForecastApi:
-
-def test_get_forecast(self):
-# appeler l'endpoint de prévision
-# vérifier le format de réponse
+def test_predictions(client):
+response = client.get('/predictions')
+assert response.status_code == 200
