@@ -1,29 +1,25 @@
 # run.py
 
-import os
-from flask import Flask
-from app import config
-from app.api import api_blueprint
+from app import create_app
 from app.models import prediction_model, storage_model
 
-app = Flask(__name__)
+app = create_app()
 
-app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['DEBUG'] = True
-
-app.register_blueprint(api_blueprint)
-
-@app.route('/')
-def home():
-return 'Welcome to the EnergyHub API!'
-
-@app.route('/status')
-def status():
-return {'status': 'operational'}
-
-if __name__ == '__main__':
-
+@app.before_first_request
+def initialise_models():
 prediction_model.load()
 storage_model.load()
 
-app.run(host='0.0.0.0', port=5000)
+@app.route('/')
+def home():
+return 'Bienvenue sur l'API EnergyHub!'
+
+@app.route('/status')
+def status():
+return {'status': 'en fonctionnement'}
+
+if __name__ == '__main__':
+
+port = int(os.environ.get('PORT', 5000))
+
+app.run(host='0.0.0.0', port=port, debug=True)
