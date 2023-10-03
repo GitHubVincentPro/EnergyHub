@@ -118,7 +118,28 @@ GitHub EnergyHub:
 - Déployer automatiquement de nouvelles versions du système
 - Prévoir des capacités d'évolutivité et de haute disponibilité
 
-Copyright (c) 2023 VincentPro
+
+### DATA
+
+Pour le dossier data, voici quelques éléments de données clés à récolter et à y stocker:
+
+- Données météo historiques (ensoleillement, température, vent...) au format CSV par exemple. Cela servira à l'entraînement des modèles de prévision.
+
+- Courbes de charge réelles de foyers/bâtiments sur différentes périodes (jour, semaine, mois). Utile pour prédire la consommation.
+
+- Production d'énergie renouvelable d'installations solaires et éoliennes existantes.
+
+- Informations techniques sur les capacités et performance des batteries et véhicules électriques utilisables pour le stockage.
+
+- Données open data des gestionnaires de réseaux sur l'offre et la demande énergétique globale.
+
+- Prix horaires/journaliers de gros du marché de l'électricité.
+
+Le but est de disposer rapidement de jeux de données réelles ou simulées pour tester et valider les premiers algorithmes. N'hésite pas à me demander comment formater, nettoyer ou enrichir ces données.
+
+Ensuite il faudra penser à organiser ce dossier data, par exemple avec des sous-dossiers par type/source de données ou par zone géographique.
+
+### Copyright (c) 2023 VincentPro
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
