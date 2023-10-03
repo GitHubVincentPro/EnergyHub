@@ -1,5 +1,5 @@
 ```markdown
-# Données du projet
+# EnergyHub
 
-Ce dossier contient la documentation du projet d'analyse de données.
+Système de gestion intelligente de l'énergie renouvelable
 ```
