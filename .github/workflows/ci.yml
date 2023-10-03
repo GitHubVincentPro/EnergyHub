@@ -1,0 +1,45 @@
+## .github/workflows/ci.yml
+
+```yml
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+
+build:
+
+runs-on: ubuntu-latest
+
+steps:
+- uses: actions/checkout@v2
+- name: Set up Python 3.8
+uses: actions/setup-python@v2
+with:
+python-version: 3.8
+- name: Install dependencies
+run: pip install -r requirements.txt
+- name: Lint with flake8
+run: flake8 .
+- name: Test with pytest
+run: pytest
+
+deploy:
+
+needs: build
+if: github.ref == 'refs/heads/main'
+
+runs-on: ubuntu-latest
+
+steps:
+- uses: actions/checkout@v2
+- name: Set up Python 3.8
+uses: actions/setup-python@v2
+with:
+python-version: 3.8
+- name: Deploy to Heroku
+run: |
+git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/${{ secrets.HEROKU_APP_NAME }}.git main
+env:
+HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+```
