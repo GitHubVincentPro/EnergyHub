@@ -219,9 +219,41 @@ On pourrait aussi:
 
 - Publier les résultats scientifiques dans des conférences pour faire progresser la recherche sur le sujet.
 
+### DEV 1.3
 
+1. Compléter les jeux de données dans le dossier data/
+- Ajouter des données météo, de consommation et de production réelles
+- Formater les données pour l'entraînement des modèles
 
+2. Développer les modèles de prévision
+- Implémenter un premier modèle de prévision court-terme dans models/forecasting_models.py
+- Entraîner et valider le modèle dans des notebooks Jupyter
 
+3. Implémenter la gestion basique du stockage
+- Créer un algorithme simple de charge/décharge dans models/storage_manager.py
+- Simuler son fonctionnement dans des notebooks
+
+4. Configurer l'API REST avec Flask
+- Définir les spécifications OpenAPI dans docs/api_specs.yml
+- Implémenter les routes principales dans app/api.py
+
+5. Mettre en place l'application Flask
+- Créer le point d'entrée dans app/run.py
+- Ajouter des routes et templates de base dans app/
+
+6. Automatiser les tests unitaires
+- Écrire les premiers tests dans tests/test_models.py
+- Configurer Github Actions pour les exécuter
+
+7. Déployer la version bêta
+- Déployer l'application sur Heroku
+- Tester les fonctionnalités de base
+
+8. Documenter l'installation
+- Expliquer dans docs/comment installer et lancer le projet
+
+9. Récolter un premier retour utilisateur
+- Faire tester la bêta et corriger les bugs trouvés
 
 ### Copyright (c) 2023 VincentPro
 
