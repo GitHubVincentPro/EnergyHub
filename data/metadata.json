@@ -1,32 +1,56 @@
 
+Voici un exemple amélioré de contenu pour le fichier metadata.json :
+
 ```json
 {
-"data_sources": {
-"solar_plant_1": {
+"description": "Métadonnées des jeux de données utilisés dans le projet EnergyHub",
+
+"data_sources": [
+{
+"id": "solar_plant_1",
 "name": "Centrale solaire de Perpignan",
 "location": "Perpignan, France",
-"api_url": "https://api.weathercompany.com/..."
-},
-"household_load_data": {
-"name": "Données de consommation ménage",
-"source": "ENEDIS",
-"interval": "30 minutes"
-}
+"api_url": "https://api.weathercompany.com/...",
+"license": "Propriétaire",
+"contact": " productmanager@solarplant.com"
 },
 
-"datasets": {
-"solar_production_2017": {
-"source": "solar_plant_1",
-"interval": "15 minutes",
-"variables": ["timestamp", "power"],
-"file_path": "raw/solar_plant_1_2017.csv"
+{
+"id": "enedis",
+"name": "ENEDIS",
+"website": "www.enedis.fr",
+"license": "Open Data",
+"variables": [
+"timestamp",
+"consumption_kWh"
+]
+}
+],
+
+"datasets": [
+{
+"id": "solar_production_2017",
+"source_id": "solar_plant_1",
+"description": "Production solaire horaire de 2017",
+"interval": "1 heure",
+"file_path": "raw/solar_2017.csv",
+"variables": [
+"timestamp",
+"power_kW"
+],
+"format": "CSV"
 },
 
-"household_load_2018": {
-"source": "household_load_data",
-"variables": ["timestamp", "power", "weather"],
-"file_path": "raw/household_load_2018.csv"
+{
+"id": "household_load_2018",
+"source_id": "enedis",
+"description": "Courbes de charge ménege 2018",
+"file_path": "processed/load_2018.parquet",
+"variables": [
+"consommation_kWh"
+],
+"format": "Parquet"
 }
-}
+]
 }
 ```
