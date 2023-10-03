@@ -1,0 +1,1 @@
+Définit le numéro de version du package
