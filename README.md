@@ -255,6 +255,57 @@ On pourrait aussi:
 9. Récolter un premier retour utilisateur
 - Faire tester la bêta et corriger les bugs trouvés
 
+
+
+#### Checklist version bêta 
+
+
+## Données
+
+- [ ] Les jeux de données de base sont complétés et propres
+- [ ] Ils couvrent les besoins minimum des modèles
+
+## Modèles
+
+- [ ] Les algorithmes de prévision sont implémentés et testés
+- [ ] Le module de gestion de stockage fonctionne sur des cas simples
+
+## API
+
+- [ ] Les spécifications OpenAPI sont définies
+- [ ] Les routes de base répondent sans erreur
+
+## Interface
+
+- [ ] Un dashboard sommaire est fonctionnel
+- [ ] Il permet de piloter le stockage
+
+## Tests
+
+- [ ] Il existe des tests unitaires de couverture minimum
+- [ ] Les tests d'intégration API passent
+
+## Déploiement
+
+- [ ] Le package s'installe proprement
+- [ ] Une démo fonctionne sur un Serveur linux Debian
+
+## Documentation
+
+- [ ] Le README est complet et le fonctionnement expliqué
+- [ ] La documentation technique est en cours
+
+## Qualité
+
+- [ ] Le code respecte les bonnes pratiques
+- [ ] Une analyse de sécurité sommaire a été faite
+
+
+
+#######################################################################################
+
+
+
 lancer le projet EnergyHub sur un simple serveur Linux Debian. Voici les étapes à suivre:
 
 
