@@ -199,6 +199,26 @@ On pourrait aussi:
 
 - Appliquer des techniques d'intelligence artificielle plus avancées comme le deep learning ou le reinforcement learning.
 
+### DEV 1.2
+
+- Ajouter de nouvelles sources de données réelles plus complètes et à jour, notamment des données météorologiques précises et des courbes de charges de consommateurs/producteurs.
+
+- Implémenter de nouveaux algorithmes d'apprentissage automatique comme des RNN ou CNN dans le dossier "models" pour affiner les prévisions court-terme.
+
+- Développer dans le dossier "app" de nouvelles routes API et fonctionnalités comme la gestion automatisée du stockage grâce à des algorithmes de reinforcement learning.
+
+- Compléter les notebooks de test et formation des modèles, en implémentant notamment la validation croisée.
+
+- Mettre en place des pipelines CI/CD automatisés dans GitHub Actions pour tester et déployer les nouvelles fonctionnalités de manière continue.
+
+- Finaliser la documentation technique dans le dossier "docs" et déployer un site de documentation utilisateur.
+
+- Créer une interface web intuitive avec Flask/Plotly pour visualiser les prévisions et commander le stockage.
+
+- Simuler sur des scénarios réels le fonctionnement global du système de gestion énergétique.
+
+- Publier les résultats scientifiques dans des conférences pour faire progresser la recherche sur le sujet.
+
 
 
 
