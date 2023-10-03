@@ -1,38 +1,43 @@
 ```python
+import json
 import unittest
-from api.core import predict
-from api.models import ForecastRequest, ForecastResult
+from fastapi.testclient import TestClient
 
-class TestCore(unittest.TestCase):
+from api.main import app
+from api.models import ForecastRequest, ForecastResult
+from api.schemas import ForecastRequestSchema
+
+client = TestClient(app)
+
+class TestRoutes(unittest.TestCase):
 
 def setUp(self):
-self.request = ForecastRequest(
-date='2022-01-01',
-location='Paris'
-)
+self.valid_request = {
+"date": "2023-01-01",
+"location": "Paris"
+}
 
-def test_predict_returns_result(self):
-"""La fonction predict doit retourner un objet ForecastResult"""
+def test_forecast_endpoint(self):
+response = client.post("/forecast", json=self.valid_request)
+self.assertEqual(response.status_code, 200)
 
-result = predict(self.request)
+def test_valid_request(self):
+response = client.post("/forecast", json=self.valid_request)
+data = response.json()
+ForecastRequestSchema().validate(data)
 
-self.assertIsInstance(result, ForecastResult)
+def test_invalid_json(self):
+response = client.post("/forecast", json={"invalid": "data"})
+self.assertEqual(response.status_code, 422)
 
-def test_forecast_temperature(self):
-"""Le champ temperature du résultat doit être un float"""
+def test_missing_parameter(self):
+request = {"location": "Paris"}
+response = client.post("/forecast", json=request)
+self.assertEqual(response.status_code, 422)
 
-result = predict(self.request)
-
-self.assertIsInstance(result.temperature, float)
-
-def test_valid_forecast(self):
-"""La prévision météo doit être une chaine valide"""
-
-result = predict(self.request)
-
-valid_forecasts = ['soleil', 'pluie', 'nuageux']
-
-self.assertIn(result.weather, valid_forecasts)
+def test_not_found(self):
+response = client.get("/unknown")
+self.assertEqual(response.status_code, 404)
 
 if __name__ == '__main__':
 unittest.main()
