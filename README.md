@@ -118,6 +118,35 @@ GitHub EnergyHub:
 - Déployer automatiquement de nouvelles versions du système
 - Prévoir des capacités d'évolutivité et de haute disponibilité
 
+### Rajouter des modèles de prévision
+
+- Créer un nouveau notebook dans le dossier notebooks pour entraîner un modèle LSTM sur les données solaires
+- Ajouter le code du modèle dans models/forecasting_models.py
+- Documenter la méthode dans docs/models.md
+
+### Améliorer la gestion du stockage
+
+- Implémenter un algorithme Q-Learning dans storage/battery_manager.py
+- Simuler son fonctionnement dans notebooks/storage_simulation.ipynb
+- Comparer les performances avec l'algorithme existant
+
+### Développer l'API REST
+
+- Concevoir les spécifications OpenAPI dans docs/api_specs.yml
+- Créer les routes Flask dans app/api.py pour exposer les prévisions et le stockage
+- Écrire les tests d'intégration API dans tests/api_test.py
+
+### Mettre en place le pipeline CI/CD
+
+- Configurer GitHub Actions dans .github/workflows/ci.yml pour les tests automatiques
+- Déployer automatiquement une version de démo sur Heroku à chaque merge
+- Documenter le workflow de développement dans CONTRIBUTING.md
+
+### Publier la documentation
+
+- Générer le site de documentation avec Sphinx
+- Héberger le site sur GitHub Pages
+- Promouvoir la documentation sur le référentiel
 
 ### DATA
 
