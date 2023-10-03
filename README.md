@@ -246,7 +246,7 @@ On pourrait aussi:
 - Configurer Github Actions pour les exécuter
 
 7. Déployer la version bêta
-- Déployer l'application sur Heroku
+- Déployer l'application sur Serveur
 - Tester les fonctionnalités de base
 
 8. Documenter l'installation
@@ -254,6 +254,52 @@ On pourrait aussi:
 
 9. Récolter un premier retour utilisateur
 - Faire tester la bêta et corriger les bugs trouvés
+
+lancer le projet EnergyHub sur un simple serveur Linux Debian. Voici les étapes à suivre:
+
+
+#### Lancer le Projet sur un serveur linux Debian
+
+1. Installer Python et les dépendances nécessaires sur le serveur:
+
+```
+sudo apt update
+sudo apt install python3-pip python3-dev libpq-dev postgresql postgresql-contrib
+```
+
+2. Cloner le dépôt Git du projet:
+
+```
+git clone https://github.com/GitHubVincentPro/EnergyHub
+```
+
+3. Installer les dépendances Python avec pip:
+
+```
+pip3 install -r requirements.txt
+```
+
+4. Créer un utilisateur dédié pour le serveur Flask:
+
+```
+sudo adduser energyhub
+```
+
+5. Démarrer l'application Flask:
+
+```
+sudo su - energyhub
+export FLASK_APP=run.py
+flask run --host=0.0.0.0
+```
+
+6. Ouvrir le firewall pour exposer le port 5000:
+
+```
+sudo ufw allow 5000
+```
+
+7. L'API sera alors accessible depuis l'IP publique du serveur au port 5000.
 
 ### Copyright (c) 2023 VincentPro
 
