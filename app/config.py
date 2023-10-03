@@ -5,24 +5,26 @@ class Config:
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # Database
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_NAME = os.environ.get('DB_NAME')
+DB_URI = os.environ.get('DATABASE_URL')
 
 # API
-API_VERSION = 'v1'
-DEBUG = True
-
-class DevelopmentConfig(Config):
-pass
-
-class ProductionConfig(Config):
 DEBUG = False
+TESTING = False
+
+class DevConfig(Config):
+DEBUG = True
+TESTING = True
+
+class TestConfig(Config):
+DEBUG = True
+TESTING = True
+DB_URI = 'sqlite:///'
 
 config = {
-'development': DevelopmentConfig,
-'production': ProductionConfig
+'development': DevConfig,
+'testing': TestConfig,
+'production': Config
 }
 
-def get_config(env_name):
-return config[env_name]
+def get_config(app_env):
+return config[app_env]
