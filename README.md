@@ -87,3 +87,33 @@ GitHub EnergyHub:
 - Utiliser l'apprentissage par renforcement pour l'équilibrage offre/demande
 
 - Publier les résultats dans des conférences/journaux
+
+- ### Modèles de prévision
+
+- Implémenter un modèle ARIMA en Python pour prédire la consommation
+- Entraîner un RNN sur Keras pour la production solaire à court-terme
+- Comparer les performances de différents algorithmes (SVM, Tree, etc.)
+
+### Stockage de l'énergie
+
+- Modéliser les capacités de stockage disponibles (batteries, véhicules électriques)
+- Développer un Q-Learning pour optimiser les stratégies de charge/décharge
+- Intégrer la valorisation des flexibilités auprès des gestionnaires de réseaux
+
+### Orchestration des flux
+
+- Concevoir l'API RESTful du système de gestion de l'énergie avec Flask
+- Développer le système multi-agents pour la négociation entre prosumer
+- Simuler le fonctionnement sur differents scénarios
+
+### Interfaces utilisateur
+
+- Construire le dashboard métier avec Plotly/Dash pour la visualisation
+- Ajouter des modes d'analyse des données et de simulation
+- Déployer l'interface sous forme d'application web/mobile
+
+### Ingénierie de déploiement
+
+- Appliquer les principes du DevOps avec des outils comme Docker
+- Déployer automatiquement de nouvelles versions du système
+- Prévoir des capacités d'évolutivité et de haute disponibilité
