@@ -1,11 +1,32 @@
-from flask import Blueprint, jsonify
-from .models import ForecastModel
-from .schemas import ForecastSchema
+@forecast.route("/predict")
+def predict():
+# ...
 
-forecast_blueprint = Blueprint('forecast')
+@forecast.route("/simulations")
+def simulate():
+# ...
 
-@forecast_blueprint.route("/forecast")
-def get_forecast():
-forecast = ForecastModel().predict()
-serialized = ForecastSchema(many=True).dump(forecast)
-return jsonify(serialized)
+# app/api/storage.py
+
+@storage.route("/status")
+def status():
+# ...
+
+@storage.route("/charge", methods=['POST'])
+def charge():
+# ...
+
+@storage.route("/discharge")
+def discharge():
+# ...
+
+# tests/test_api.py
+
+import app
+import json
+
+def test_predict():
+client = app.create_app().test_client()
+
+rv = client.get('/predict')
+assert rv.status_code == 200
