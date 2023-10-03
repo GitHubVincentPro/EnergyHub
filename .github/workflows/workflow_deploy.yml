@@ -1,0 +1,20 @@
+### workflow_deploy.yml
+
+```yaml
+name: Deploy
+
+on:
+push:
+branches:
+- main
+
+jobs:
+
+deploy:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- run: make deploy
+env:
+HEROKU_API_KEY: ${{secrets.HEROKU_API_KEY}}
+```

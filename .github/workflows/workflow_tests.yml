@@ -1,0 +1,34 @@
+### workflow_tests.yml
+
+```yaml
+name: Tests
+
+on: [push]
+
+jobs:
+
+build:
+runs-on: ubuntu-latest
+steps:
+- uses: actions/checkout@v2
+- name: Install dependencies
+run: pip install -r requirements.txt
+- name: Run unit tests
+run: pytest
+- name: Run notebook tests
+run: jupyter nbconvert --to script && python notebook_tests.py
+
+linux:
+runs-on: ubuntu-latest
+steps:
+- ...
+- name: Run notebook tests
+run: jupyter nbconvert --to script && python notebook_tests.py
+
+macos:
+runs-on: macos-latest
+steps:
+- ...
+- name: Run notebook tests
+run: jupyter nbconvert --to script && python notebook_tests.py
+```
